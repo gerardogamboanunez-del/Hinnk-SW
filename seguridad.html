@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad y privacidad — Hinnk</title>
+  <meta name="description" content="Hinnk protege tus datos con cifrado end-to-end, cumplimiento de LGPD y GDPR, y sin compartir información con terceros." />
+  <meta property="og:title" content="Seguridad y privacidad — Hinnk" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="./assets/hinnk-shared.css">
+
+  <style>
+    :root { --hk-bg:#0B0708; --hk-red:#F13441; --hk-red-soft:#F78A91; --hk-text:#F5EBE0; --hk-text-muted:#A8A0A2; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body { font-family:'Poppins',system-ui,sans-serif; background:var(--hk-bg); color:var(--hk-text); margin:0; }
+    .gradient-text { background:linear-gradient(135deg,var(--hk-red) 0%,var(--hk-red-soft) 50%,var(--hk-red) 100%); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .label-uppercase { font-weight:600; text-transform:uppercase; letter-spacing:0.2em; color:var(--hk-red-soft); font-size:0.75rem; }
+    /* NAV — same across all pages */
+    .nav-floating { position:fixed; top:0; left:0; right:0; z-index:1000; padding:12px 24px; background:rgba(11,7,8,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,0.05); transition:background 0.3s; }
+    .nav-floating-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .nav-brand { display:flex; align-items:center; gap:12px; }
+    .nav-logo { display:flex; align-items:center; gap:10px; }
+    .nav-logo .logo-mark { height:30px; width:auto; }
+    .nav-logo .logo-text { height:16px; width:auto; }
+    .meta-partner-badge { display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:100px; background:rgba(0,114,255,0.1); border:1px solid rgba(0,114,255,0.25); font-size:0.6875rem; font-weight:600; color:#60a5fa; letter-spacing:0.03em; }
+    .meta-partner-dot { width:6px; height:6px; border-radius:50%; background:#60a5fa; }
+    .nav-links-glass { display:flex; list-style:none; margin:0; padding:0; gap:28px; }
+    .nav-links-glass a { font-size:0.9rem; font-weight:500; color:var(--hk-text-muted); transition:color 0.2s; }
+    .nav-links-glass a:hover { color:var(--hk-text); }
+    .nav-cta-group { display:flex; align-items:center; gap:12px; }
+    .nav-login { font-size:0.875rem; font-weight:500; color:var(--hk-text-muted); transition:color 0.2s; }
+    .nav-login:hover { color:var(--hk-text); }
+    .nav-divider { width:1px; height:18px; background:rgba(255,255,255,0.12); }
+    .nav-cta-primary { display:inline-flex; align-items:center; gap:7px; background:var(--hk-red); color:#fff; padding:9px 20px; border-radius:100px; font-size:0.875rem; font-weight:600; transition:all 0.3s; box-shadow:0 6px 18px -6px rgba(241,52,65,0.45); }
+    .nav-cta-primary:hover { background:var(--hk-red-soft); transform:translateY(-1px); }
+    .nav-cta-primary i { width:14px; height:14px; }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; padding:6px; border:none; background:none; cursor:pointer; }
+    .nav-hamburger-line { width:22px; height:2px; background:var(--hk-text); border-radius:2px; transition:all 0.3s; }
+    .mobile-menu { display:none; }
+    @media (max-width:768px) {
+      .nav-links-glass,.nav-login,.nav-divider { display:none; }
+      .nav-hamburger { display:flex; }
+      .mobile-menu { display:flex; flex-direction:column; gap:4px; position:absolute; top:100%; left:0; right:0; background:rgba(11,7,8,0.97); backdrop-filter:blur(20px); padding:16px 24px 24px; border-bottom:1px solid rgba(255,255,255,0.07); transform:translateY(-10px); opacity:0; pointer-events:none; transition:all 0.25s; }
+      .mobile-menu.is-open { transform:translateY(0); opacity:1; pointer-events:all; }
+      .mobile-menu-label { font-size:0.6875rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--hk-text-muted); margin-bottom:8px; }
+      .mobile-menu-link { font-size:1rem; font-weight:500; color:var(--hk-text); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:8px; }
+      .mobile-menu-section { display:flex; flex-direction:column; }
+      .mobile-menu-divider { height:1px; background:rgba(255,255,255,0.07); margin:8px 0; }
+    }
+    /* PAGE */
+    .page-hero { padding:160px 24px 64px; text-align:center; max-width:760px; margin:0 auto; }
+    .page-hero h1 { font-size:clamp(2.5rem,5vw,3.75rem); font-weight:800; line-height:1.1; letter-spacing:-0.03em; margin:16px 0 24px; }
+    .page-hero p { font-size:clamp(1rem,1.4vw,1.125rem); color:var(--hk-text-muted); max-width:560px; margin:0 auto; line-height:1.7; font-weight:300; }
+    .security-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1100px; margin:0 auto; padding:0 24px 80px; }
+    .security-card { background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.01) 100%); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px 28px; transition:border-color 0.3s,transform 0.3s; }
+    .security-card:hover { border-color:rgba(241,52,65,0.25); transform:translateY(-4px); }
+    .security-icon { width:48px; height:48px; border-radius:14px; background:rgba(241,52,65,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--hk-red-soft); }
+    .security-icon i { width:24px; height:24px; }
+    .security-card h3 { font-size:1.125rem; font-weight:600; margin:0 0 10px; }
+    .security-card p { font-size:0.9375rem; color:var(--hk-text-muted); line-height:1.65; font-weight:300; margin:0; }
+    .compliance-band { background:rgba(255,255,255,0.02); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:48px 24px; text-align:center; }
+    .compliance-band h2 { font-size:clamp(1.5rem,2.5vw,2rem); font-weight:700; margin:0 0 12px; letter-spacing:-0.02em; }
+    .compliance-band p { color:var(--hk-text-muted); font-size:0.9375rem; max-width:520px; margin:0 auto 32px; font-weight:300; line-height:1.7; }
+    .compliance-pills { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+    .compliance-pill { display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:100px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); font-size:0.875rem; font-weight:600; color:var(--hk-text); }
+    .compliance-pill i { width:16px; height:16px; color:var(--hk-red-soft); }
+    /* FOOTER */
+    .hinnk-footer { border-top:1px solid rgba(255,255,255,0.06); padding:60px 24px 32px; margin-top:80px; }
+    .hinnk-footer-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; }
+    @media (max-width:768px) { .hinnk-footer-grid { grid-template-columns:1fr 1fr; gap:32px; } }
+    @media (max-width:480px) { .hinnk-footer-grid { grid-template-columns:1fr; } }
+    .hinnk-footer-tagline { font-size:0.875rem; color:var(--hk-text-muted); line-height:1.6; margin:12px 0 16px; font-weight:300; }
+    .badge-pill { display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:100px; font-size:0.6875rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
+    .badge-pill.mexico { background:rgba(0,140,69,0.1); border:1px solid rgba(0,140,69,0.25); color:#4ade80; }
+    .hinnk-footer-col { display:flex; flex-direction:column; gap:10px; }
+    .hinnk-footer-col-title { font-size:0.6875rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--hk-text-muted); margin-bottom:4px; }
+    .hinnk-footer-link { font-size:0.875rem; color:var(--hk-text-muted); transition:color 0.2s; }
+    .hinnk-footer-link:hover { color:var(--hk-text); }
+    .hinnk-footer-bottom { max-width:1100px; margin:40px auto 0; padding-top:24px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+    .hinnk-footer-copyright { font-size:0.8125rem; color:rgba(168,160,162,0.5); }
+    .hinnk-footer-channels { display:flex; align-items:center; gap:8px; color:rgba(168,160,162,0.5); font-size:0.8125rem; }
+    .hinnk-footer-channels i { width:16px; height:16px; color:rgba(168,160,162,0.4); }
+    .hinnk-footer-logo { height:32px; width:auto; display:block; margin-bottom:12px; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-to-content">Saltar al contenido</a>
+
+  <nav class="nav-floating" id="nav">
+    <div class="nav-floating-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="./hinnk-logo.png" alt="Hinnk" class="logo-mark" />
+          <img src="./hinnk-text.png" alt="hinnk" class="logo-text" />
+        </a>
+        <span class="meta-partner-badge"><span class="meta-partner-dot"></span>Meta Partner</span>
+      </div>
+      <ul class="nav-links-glass">
+        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+        <li><a href="casos.html">Casos de uso</a></li>
+        <li><a href="pricing.html">Precios</a></li>
+        <li><a href="aprender.html">Recursos</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a href="#login" class="nav-login">Iniciar sesión</a>
+        <span class="nav-divider"></span>
+        <a href="#trial" class="nav-cta-primary">Empezar gratis <i data-lucide="arrow-right"></i></a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span class="nav-hamburger-line"></span><span class="nav-hamburger-line"></span><span class="nav-hamburger-line"></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-section">
+          <span class="mobile-menu-label">Navegación</span>
+          <a href="index.html#como-funciona" class="mobile-menu-link">Cómo funciona</a>
+          <a href="casos.html" class="mobile-menu-link">Casos de uso</a>
+          <a href="pricing.html" class="mobile-menu-link">Precios</a>
+          <a href="aprender.html" class="mobile-menu-link">Recursos</a>
+        </div>
+        <div class="mobile-menu-divider"></div>
+        <div class="mobile-menu-section"><a href="#login" class="mobile-menu-link"><i data-lucide="log-in"></i>Iniciar sesión</a></div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="page-hero">
+      <span class="label-uppercase">— Seguridad</span>
+      <h1>Tu <span class="gradient-text">negocio</span> y tus<br>datos, protegidos</h1>
+      <p>Hinnk fue diseñado con seguridad desde el primer día. Tus conversaciones, leads y datos de clientes nunca se comparten con terceros ni se usan para entrenar modelos externos.</p>
+    </div>
+
+    <div class="security-grid">
+      <div class="security-card">
+        <div class="security-icon"><i data-lucide="lock"></i></div>
+        <h3>Cifrado en tránsito y en reposo</h3>
+        <p>Todas las comunicaciones usan TLS 1.3. Los datos almacenados se cifran con AES-256. Nadie, ni siquiera el equipo de Hinnk, puede leer tus conversaciones.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon"><i data-lucide="shield-check"></i></div>
+        <h3>Aislamiento de datos por empresa</h3>
+        <p>Cada cuenta opera en un entorno completamente aislado. La base de conocimiento de tu negocio nunca se mezcla con la de otro cliente.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon"><i data-lucide="eye-off"></i></div>
+        <h3>Sin entrenamiento de terceros</h3>
+        <p>Tus datos NO se usan para mejorar modelos de ningún proveedor de IA. Tienes control total sobre tu información.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon"><i data-lucide="server"></i></div>
+        <h3>Infraestructura cloud certificada</h3>
+        <p>Operamos sobre infraestructura con certificaciones SOC 2 Type II e ISO 27001. Alta disponibilidad con SLA de 99.9%.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon"><i data-lucide="key"></i></div>
+        <h3>Control de acceso granular</h3>
+        <p>Define qué miembros de tu equipo tienen acceso a qué conversaciones y configuraciones. Registro de auditoría completo.</p>
+      </div>
+      <div class="security-card">
+        <div class="security-icon"><i data-lucide="trash-2"></i></div>
+        <h3>Derecho al olvido</h3>
+        <p>Puedes solicitar la eliminación completa de todos tus datos en cualquier momento. Cumplimos con LGPD (México) y GDPR (Europa).</p>
+      </div>
+    </div>
+
+    <div class="compliance-band">
+      <span class="label-uppercase">— Cumplimiento</span>
+      <h2 style="margin-top:12px;">Estándares que cumplimos</h2>
+      <p>Hinnk se diseñó para cumplir con las regulaciones más exigentes de privacidad y protección de datos a nivel global.</p>
+      <div class="compliance-pills">
+        <span class="compliance-pill"><i data-lucide="check-circle"></i>LGPD México</span>
+        <span class="compliance-pill"><i data-lucide="check-circle"></i>GDPR Europa</span>
+        <span class="compliance-pill"><i data-lucide="check-circle"></i>Meta Business Terms</span>
+        <span class="compliance-pill"><i data-lucide="check-circle"></i>WhatsApp Business Policy</span>
+        <span class="compliance-pill"><i data-lucide="check-circle"></i>ISO 27001 (infraestructura)</span>
+        <span class="compliance-pill"><i data-lucide="check-circle"></i>SOC 2 Type II (infraestructura)</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="hinnk-footer">
+    <div class="hinnk-footer-grid">
+      <div>
+        <img src="./hinnk-logo.png" alt="Hinnk" class="hinnk-footer-logo" />
+        <p class="hinnk-footer-tagline">Agentes de IA operando tu negocio.<br>Sin código, sin guiones rígidos, sin contratos largos.</p>
+        <span class="badge-pill mexico">Hecho en México</span>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Producto</span>
+        <a href="index.html#como-funciona" class="hinnk-footer-link">Cómo funciona</a>
+        <a href="casos.html" class="hinnk-footer-link">Casos de uso</a>
+        <a href="pricing.html" class="hinnk-footer-link">Precios</a>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Empresa</span>
+        <a href="nosotros.html" class="hinnk-footer-link">Conócenos</a>
+        <a href="seguridad.html" class="hinnk-footer-link">Seguridad y privacidad</a>
+        <a href="aprender.html" class="hinnk-footer-link">Aprender más</a>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Legal</span>
+        <a href="terminos.html" class="hinnk-footer-link">Términos y condiciones</a>
+        <a href="privacidad.html" class="hinnk-footer-link">Aviso de privacidad</a>
+        <a href="cookies.html" class="hinnk-footer-link">Política de cookies</a>
+      </div>
+    </div>
+    <div class="hinnk-footer-bottom">
+      <span class="hinnk-footer-copyright">© 2026 Hinnk Technologies S.A. de C.V. — Todos los derechos reservados.</span>
+      <span class="hinnk-footer-channels">Conectado con <i data-lucide="message-circle"></i><i data-lucide="instagram"></i><i data-lucide="messages-square"></i></span>
+    </div>
+  </footer>
+
+  <script src="./assets/hinnk-shared.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

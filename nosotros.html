@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conócenos — Hinnk</title>
+  <meta name="description" content="Hinnk es una empresa mexicana que automatiza operaciones de negocio con agentes de inteligencia artificial. Conoce nuestro equipo y misión." />
+  <meta property="og:title" content="Conócenos — Hinnk" />
+  <meta property="og:description" content="Agentes de IA que operan tu negocio. Conoce el equipo detrás de Hinnk." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="./assets/hinnk-shared.css">
+
+  <style>
+    :root {
+      --hk-bg: #0B0708;
+      --hk-red: #F13441;
+      --hk-red-soft: #F78A91;
+      --hk-text: #F5EBE0;
+      --hk-text-muted: #A8A0A2;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--hk-bg);
+      color: var(--hk-text);
+      margin: 0;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--hk-red) 0%, var(--hk-red-soft) 50%, var(--hk-red) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .label-uppercase {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--hk-red-soft);
+      font-size: 0.75rem;
+    }
+
+    /* NAV */
+    .nav-floating {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 12px 24px;
+      background: rgba(11,7,8,0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .nav-floating-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo .logo-mark { height: 30px; width: auto; }
+    .nav-logo .logo-text { height: 16px; width: auto; }
+    .meta-partner-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; border-radius: 100px;
+      background: rgba(0,114,255,0.1); border: 1px solid rgba(0,114,255,0.25);
+      font-size: 0.6875rem; font-weight: 600; color: #60a5fa; letter-spacing: 0.03em;
+    }
+    .meta-partner-dot { width:6px; height:6px; border-radius:50%; background:#60a5fa; }
+    .nav-links-glass { display:flex; list-style:none; margin:0; padding:0; gap:28px; }
+    .nav-links-glass a { font-size:0.9rem; font-weight:500; color:var(--hk-text-muted); transition:color 0.2s; }
+    .nav-links-glass a:hover, .nav-links-glass a.active { color:var(--hk-text); }
+    .nav-cta-group { display:flex; align-items:center; gap:12px; }
+    .nav-login { font-size:0.875rem; font-weight:500; color:var(--hk-text-muted); transition:color 0.2s; }
+    .nav-login:hover { color:var(--hk-text); }
+    .nav-divider { width:1px; height:18px; background:rgba(255,255,255,0.12); }
+    .nav-cta-primary {
+      display:inline-flex; align-items:center; gap:7px;
+      background:var(--hk-red); color:#fff;
+      padding:9px 20px; border-radius:100px;
+      font-size:0.875rem; font-weight:600;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 6px 18px -6px rgba(241,52,65,0.45);
+    }
+    .nav-cta-primary:hover { background:var(--hk-red-soft); transform:translateY(-1px); box-shadow:0 10px 24px -8px rgba(241,52,65,0.55); }
+    .nav-cta-primary i { width:14px; height:14px; }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; padding:6px; border:none; background:none; cursor:pointer; }
+    .nav-hamburger-line { width:22px; height:2px; background:var(--hk-text); border-radius:2px; transition:all 0.3s; }
+    .mobile-menu { display:none; }
+    @media (max-width:768px) {
+      .nav-links-glass, .nav-login, .nav-divider { display:none; }
+      .nav-hamburger { display:flex; }
+      .mobile-menu {
+        display:flex; flex-direction:column; gap:4px;
+        position:absolute; top:100%; left:0; right:0;
+        background:rgba(11,7,8,0.97); backdrop-filter:blur(20px);
+        padding:16px 24px 24px; border-bottom:1px solid rgba(255,255,255,0.07);
+        transform:translateY(-10px); opacity:0; pointer-events:none;
+        transition:all 0.25s;
+      }
+      .mobile-menu.is-open { transform:translateY(0); opacity:1; pointer-events:all; }
+      .mobile-menu-label { font-size:0.6875rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--hk-text-muted); margin-bottom:8px; }
+      .mobile-menu-link { font-size:1rem; font-weight:500; color:var(--hk-text); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:8px; }
+      .mobile-menu-section { display:flex; flex-direction:column; }
+      .mobile-menu-divider { height:1px; background:rgba(255,255,255,0.07); margin:8px 0; }
+    }
+
+    /* PAGE */
+    .page-hero {
+      padding: 160px 24px 80px;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 16px 0 24px;
+    }
+    .page-hero p {
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      font-weight: 300;
+      color: var(--hk-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+    .section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    @media (max-width: 768px) { .section-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    .section h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin: 0 0 20px;
+    }
+    .section p {
+      color: var(--hk-text-muted);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .section p + p { margin-top: 16px; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .value-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: border-color 0.3s;
+    }
+    .value-card:hover { border-color: rgba(241,52,65,0.3); }
+    .value-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(241,52,65,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      color: var(--hk-red-soft);
+    }
+    .value-icon i { width: 22px; height: 22px; }
+    .value-card h3 { font-size: 1.0625rem; font-weight: 600; margin: 0 0 8px; }
+    .value-card p { font-size: 0.9375rem; color: var(--hk-text-muted); line-height: 1.6; font-weight: 300; margin:0; }
+
+    .stat-band {
+      background: linear-gradient(180deg, rgba(241,52,65,0.05) 0%, rgba(241,52,65,0.01) 100%);
+      border-top: 1px solid rgba(241,52,65,0.12);
+      border-bottom: 1px solid rgba(241,52,65,0.12);
+      padding: 60px 24px;
+    }
+    .stat-band-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; text-align: center;
+    }
+    @media (max-width:640px) { .stat-band-inner { grid-template-columns: 1fr; gap:32px; } }
+    .stat-number { font-size: clamp(2.5rem,4vw,3.5rem); font-weight: 800; letter-spacing:-0.04em; line-height:1; }
+    .stat-label { font-size: 0.9375rem; color: var(--hk-text-muted); margin-top: 8px; font-weight:400; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .team-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .team-card:hover { border-color: rgba(241,52,65,0.25); transform: translateY(-4px); }
+    .team-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(241,52,65,0.2) 0%, rgba(241,52,65,0.08) 100%);
+      border: 2px solid rgba(241,52,65,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.5rem; font-weight: 700; color: var(--hk-red-soft);
+    }
+    .team-name { font-size: 1rem; font-weight: 600; margin: 0 0 4px; }
+    .team-role { font-size: 0.8125rem; color: var(--hk-text-muted); font-weight: 400; }
+
+    .cta-band {
+      background: linear-gradient(135deg, rgba(241,52,65,0.08) 0%, rgba(11,7,8,0) 100%);
+      border: 1px solid rgba(241,52,65,0.15);
+      border-radius: 28px;
+      padding: 64px 40px;
+      text-align: center;
+      margin: 0 24px 80px;
+      max-width: 860px;
+      margin-left: auto; margin-right: auto;
+    }
+    .cta-band h2 { font-size: clamp(1.75rem,3vw,2.5rem); font-weight:700; letter-spacing:-0.03em; margin:0 0 16px; }
+    .cta-band p { color:var(--hk-text-muted); font-size:1rem; margin:0 0 32px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .btn-red {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--hk-red); color:#fff; padding:14px 28px; border-radius:100px;
+      font-size:0.9375rem; font-weight:600;
+      box-shadow:0 8px 24px -8px rgba(241,52,65,0.4);
+      transition:all 0.3s;
+    }
+    .btn-red:hover { background:var(--hk-red-soft); transform:translateY(-2px); box-shadow:0 16px 32px -12px rgba(241,52,65,0.55); }
+    .btn-red i { width:16px; height:16px; }
+
+    /* FOOTER */
+    .hinnk-footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 60px 24px 32px;
+      margin-top: 0;
+    }
+    .hinnk-footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    }
+    @media (max-width:768px) { .hinnk-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media (max-width:480px) { .hinnk-footer-grid { grid-template-columns: 1fr; } }
+    .hinnk-footer-tagline { font-size:0.875rem; color:var(--hk-text-muted); line-height:1.6; margin:12px 0 16px; font-weight:300; }
+    .badge-pill { display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:100px; font-size:0.6875rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
+    .badge-pill.mexico { background:rgba(0,140,69,0.1); border:1px solid rgba(0,140,69,0.25); color:#4ade80; }
+    .hinnk-footer-col { display:flex; flex-direction:column; gap:10px; }
+    .hinnk-footer-col-title { font-size:0.6875rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--hk-text-muted); margin-bottom:4px; }
+    .hinnk-footer-link { font-size:0.875rem; color:var(--hk-text-muted); transition:color 0.2s; font-weight:400; }
+    .hinnk-footer-link:hover { color:var(--hk-text); }
+    .hinnk-footer-bottom {
+      max-width:1100px; margin:40px auto 0;
+      padding-top:24px; border-top:1px solid rgba(255,255,255,0.06);
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    }
+    .hinnk-footer-copyright { font-size:0.8125rem; color:rgba(168,160,162,0.5); }
+    .hinnk-footer-channels { display:flex; align-items:center; gap:8px; color:rgba(168,160,162,0.5); font-size:0.8125rem; }
+    .hinnk-footer-channels i { width:16px; height:16px; color:rgba(168,160,162,0.4); }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-to-content">Saltar al contenido</a>
+
+  <nav class="nav-floating" id="nav">
+    <div class="nav-floating-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="./hinnk-logo.png" alt="Hinnk" class="logo-mark" />
+          <img src="./hinnk-text.png" alt="hinnk" class="logo-text" />
+        </a>
+        <span class="meta-partner-badge">
+          <span class="meta-partner-dot"></span>
+          <span>Meta Partner</span>
+        </span>
+      </div>
+      <ul class="nav-links-glass">
+        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+        <li><a href="casos.html">Casos de uso</a></li>
+        <li><a href="pricing.html">Precios</a></li>
+        <li><a href="aprender.html">Recursos</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a href="#login" class="nav-login">Iniciar sesión</a>
+        <span class="nav-divider"></span>
+        <a href="#trial" class="nav-cta-primary">Empezar gratis <i data-lucide="arrow-right"></i></a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span class="nav-hamburger-line"></span>
+          <span class="nav-hamburger-line"></span>
+          <span class="nav-hamburger-line"></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-section">
+          <span class="mobile-menu-label">Navegación</span>
+          <a href="index.html#como-funciona" class="mobile-menu-link">Cómo funciona</a>
+          <a href="casos.html" class="mobile-menu-link">Casos de uso</a>
+          <a href="pricing.html" class="mobile-menu-link">Precios</a>
+          <a href="aprender.html" class="mobile-menu-link">Recursos</a>
+        </div>
+        <div class="mobile-menu-divider"></div>
+        <div class="mobile-menu-section">
+          <a href="#login" class="mobile-menu-link"><i data-lucide="log-in"></i> Iniciar sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <div class="page-hero">
+      <span class="label-uppercase">— Empresa</span>
+      <h1>Construyendo el futuro<br>de la <span class="gradient-text">automatización</span></h1>
+      <p>Hinnk nació en México con una misión clara: que cualquier empresa, sin importar su tamaño, pueda operar con agentes de IA que trabajan 24/7 sin código, sin guiones rígidos y sin contratos largos.</p>
+    </div>
+
+    <div class="stat-band">
+      <div class="stat-band-inner">
+        <div>
+          <div class="stat-number gradient-text">+500</div>
+          <div class="stat-label">empresas en lista de espera</div>
+        </div>
+        <div>
+          <div class="stat-number gradient-text">24/7</div>
+          <div class="stat-label">disponibilidad de los agentes</div>
+        </div>
+        <div>
+          <div class="stat-number gradient-text">+3</div>
+          <div class="stat-label">canales soportados</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section-grid">
+        <div>
+          <span class="label-uppercase">— Misión</span>
+          <h2>Democratizar la IA<br>para los negocios</h2>
+          <p>En Hinnk creemos que la inteligencia artificial no debe ser privilegio de grandes corporativos. Nuestra plataforma permite a cualquier empresa — restaurantes, clínicas, tiendas, agencias — tener agentes conversacionales que atienden clientes, califican leads y cierran ventas.</p>
+          <p>Somos Meta Partner oficial. Nuestros agentes se integran con WhatsApp Business, Instagram Direct y Messenger, los canales donde ya viven tus clientes.</p>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(241,52,65,0.08) 0%,rgba(241,52,65,0.02) 100%);border:1px solid rgba(241,52,65,0.15);border-radius:24px;padding:40px;display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.06);">
+            <i data-lucide="map-pin" style="width:20px;height:20px;color:#F78A91;flex-shrink:0;"></i>
+            <span style="font-size:0.9375rem;font-weight:500;">Monterrey, México 🇲🇽</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.06);">
+            <i data-lucide="calendar" style="width:20px;height:20px;color:#F78A91;flex-shrink:0;"></i>
+            <span style="font-size:0.9375rem;font-weight:500;">Fundada en 2024</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.06);">
+            <i data-lucide="shield-check" style="width:20px;height:20px;color:#F78A91;flex-shrink:0;"></i>
+            <span style="font-size:0.9375rem;font-weight:500;">Meta Business Partner</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.06);">
+            <i data-lucide="cpu" style="width:20px;height:20px;color:#F78A91;flex-shrink:0;"></i>
+            <span style="font-size:0.9375rem;font-weight:500;">RAG + LLM propietario</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <span class="label-uppercase">— Valores</span>
+      <h2 style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;letter-spacing:-0.025em;margin:12px 0 0;">Lo que nos guía</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i data-lucide="zap"></i></div>
+          <h3>Ejecución rápida</h3>
+          <p>De la conversación al agente activo en horas, no meses. Iteramos rápido y aprendemos más rápido.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i data-lucide="heart"></i></div>
+          <h3>Obsesión por el cliente</h3>
+          <p>Medimos nuestro éxito por el tuyo. Si tu negocio no crece, nosotros fallamos.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i data-lucide="shield"></i></div>
+          <h3>Confianza y privacidad</h3>
+          <p>Tus datos nunca se usan para entrenar modelos de terceros. Tu negocio es tuyo.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i data-lucide="globe"></i></div>
+          <h3>Impacto en México</h3>
+          <p>Construimos tecnología de clase mundial desde Latinoamérica, para Latinoamérica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <span class="label-uppercase">— Equipo</span>
+      <h2 style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;letter-spacing:-0.025em;margin:12px 0 0;">Las personas detrás<br>de Hinnk</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">G</div>
+          <div class="team-name">Gerardo Gamboa</div>
+          <div class="team-role">Co-fundador & CEO</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">A</div>
+          <div class="team-name">Equipo de IA</div>
+          <div class="team-role">Ingeniería & Modelos</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">D</div>
+          <div class="team-name">Equipo de Producto</div>
+          <div class="team-role">Diseño & UX</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">V</div>
+          <div class="team-name">Equipo de Ventas</div>
+          <div class="team-role">Growth & Partnerships</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band" style="margin-bottom:0;">
+      <span class="label-uppercase">— Únete</span>
+      <h2 style="margin-top:12px;">¿Listo para automatizar<br>tu <span class="gradient-text">negocio</span>?</h2>
+      <p>Agenda una demo y descubre cómo Hinnk puede transformar la operación de tu empresa en menos de una semana.</p>
+      <a href="pricing.html" class="btn-red">Ver planes <i data-lucide="arrow-right"></i></a>
+    </div>
+
+  </main>
+
+  <footer class="hinnk-footer" style="margin-top:80px;">
+    <div class="hinnk-footer-grid">
+      <div class="hinnk-footer-brand">
+        <img src="./hinnk-logo.png" alt="Hinnk" class="hinnk-footer-logo" />
+        <p class="hinnk-footer-tagline">Agentes de IA operando tu negocio.<br>Sin código, sin guiones rígidos, sin contratos largos.</p>
+        <span class="badge-pill mexico">Hecho en México</span>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Producto</span>
+        <a href="index.html#como-funciona" class="hinnk-footer-link">Cómo funciona</a>
+        <a href="index.html#diferenciador" class="hinnk-footer-link">Diferenciadores</a>
+        <a href="casos.html" class="hinnk-footer-link">Casos de uso</a>
+        <a href="pricing.html" class="hinnk-footer-link">Precios</a>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Empresa</span>
+        <a href="nosotros.html" class="hinnk-footer-link">Conócenos</a>
+        <a href="seguridad.html" class="hinnk-footer-link">Seguridad y privacidad</a>
+        <a href="aprender.html" class="hinnk-footer-link">Aprender más</a>
+        <a href="index.html#contacto-cta" class="hinnk-footer-link">Agendar demo</a>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Legal</span>
+        <a href="terminos.html" class="hinnk-footer-link">Términos y condiciones</a>
+        <a href="privacidad.html" class="hinnk-footer-link">Aviso de privacidad</a>
+        <a href="cookies.html" class="hinnk-footer-link">Política de cookies</a>
+      </div>
+    </div>
+    <div class="hinnk-footer-bottom">
+      <span class="hinnk-footer-copyright">© 2026 Hinnk Technologies S.A. de C.V. — Todos los derechos reservados.</span>
+      <span class="hinnk-footer-channels">Conectado con <i data-lucide="message-circle"></i><i data-lucide="instagram"></i><i data-lucide="messages-square"></i></span>
+    </div>
+  </footer>
+
+  <script src="./assets/hinnk-shared.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

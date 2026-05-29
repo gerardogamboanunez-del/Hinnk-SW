@@ -1,0 +1,227 @@
+/* =============================================================
+   HINNK — Shared Global Stylesheet
+   Applies site-wide fixes and improvements on top of per-page
+   inline styles. Keep this file import-order-last in <head>.
+   ============================================================= */
+
+/* ── 1. BASELINE FIXES ─────────────────────────────────────── */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px; /* compensates fixed nav on anchor jumps */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── 2. FOCUS STYLES (ACCESSIBILITY) ──────────────────────── */
+
+:focus-visible {
+  outline: 2px solid #F13441;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #F13441;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── 3. PREFERS-REDUCED-MOTION ─────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 4. LOGO SIZES ─────────────────────────────────────────── */
+/* Ensures nav logos render even if page-specific sizing differs */
+
+.nav-logo .logo-mark {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.nav-logo .logo-text {
+  height: 18px;
+  width: auto;
+  display: block;
+}
+
+.hinnk-footer-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ── 5. NAV IMPROVEMENTS ───────────────────────────────────── */
+
+.nav-floating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Solid background once scrolled */
+.nav-floating.scrolled {
+  background: rgba(11, 7, 8, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35) !important;
+}
+
+/* Active nav link highlight */
+.nav-links-glass a.active,
+.nav-links-glass a[aria-current="page"] {
+  color: #F13441;
+}
+
+/* ── 6. MOBILE IMPROVEMENTS ────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Prevent tap-highlight flash on iOS */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent code/pre overflow */
+  pre, code {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+
+/* ── 7. IMAGE OPTIMIZATION ─────────────────────────────────── */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── 8. SELECTION COLOR ────────────────────────────────────── */
+
+::selection {
+  background: rgba(241, 52, 65, 0.28);
+  color: #F5EBE0;
+}
+
+::-moz-selection {
+  background: rgba(241, 52, 65, 0.28);
+  color: #F5EBE0;
+}
+
+/* ── 9. SCROLLBAR (Webkit) ─────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0708;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(241, 52, 65, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(241, 52, 65, 0.60);
+}
+
+/* ── 10. FOOTER CONSISTENCY ────────────────────────────────── */
+
+.hinnk-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 11. SKIP TO CONTENT (ACCESSIBILITY) ───────────────────── */
+
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: #F13441;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ── 12. BUTTON BASE ───────────────────────────────────────── */
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ── 13. LINK BASE ─────────────────────────────────────────── */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── 14. PRINT STYLES ──────────────────────────────────────── */
+
+@media print {
+  .nav-floating,
+  .mobile-menu,
+  .landing-mini-nav {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+}

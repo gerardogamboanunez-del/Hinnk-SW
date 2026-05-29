@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos y aprendizaje — Hinnk</title>
+  <meta name="description" content="Guías, casos de éxito y recursos para aprender cómo los agentes de IA de Hinnk pueden transformar tu negocio." />
+  <meta property="og:title" content="Recursos — Hinnk" />
+  <meta property="og:type" content="website" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="./assets/hinnk-shared.css">
+
+  <style>
+    :root { --hk-bg:#0B0708; --hk-red:#F13441; --hk-red-soft:#F78A91; --hk-text:#F5EBE0; --hk-text-muted:#A8A0A2; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:96px; }
+    body { font-family:'Poppins',system-ui,sans-serif; background:var(--hk-bg); color:var(--hk-text); margin:0; }
+    .gradient-text { background:linear-gradient(135deg,var(--hk-red) 0%,var(--hk-red-soft) 50%,var(--hk-red) 100%); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .label-uppercase { font-weight:600; text-transform:uppercase; letter-spacing:0.2em; color:var(--hk-red-soft); font-size:0.75rem; }
+    .nav-floating { position:fixed; top:0; left:0; right:0; z-index:1000; padding:12px 24px; background:rgba(11,7,8,0.6); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,0.05); transition:background 0.3s; }
+    .nav-floating-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .nav-brand { display:flex; align-items:center; gap:12px; }
+    .nav-logo { display:flex; align-items:center; gap:10px; }
+    .nav-logo .logo-mark { height:30px; width:auto; }
+    .nav-logo .logo-text { height:16px; width:auto; }
+    .meta-partner-badge { display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:100px; background:rgba(0,114,255,0.1); border:1px solid rgba(0,114,255,0.25); font-size:0.6875rem; font-weight:600; color:#60a5fa; }
+    .meta-partner-dot { width:6px; height:6px; border-radius:50%; background:#60a5fa; }
+    .nav-links-glass { display:flex; list-style:none; margin:0; padding:0; gap:28px; }
+    .nav-links-glass a { font-size:0.9rem; font-weight:500; color:var(--hk-text-muted); transition:color 0.2s; }
+    .nav-links-glass a:hover,.nav-links-glass a.active { color:var(--hk-text); }
+    .nav-cta-group { display:flex; align-items:center; gap:12px; }
+    .nav-login { font-size:0.875rem; font-weight:500; color:var(--hk-text-muted); transition:color 0.2s; }
+    .nav-login:hover { color:var(--hk-text); }
+    .nav-divider { width:1px; height:18px; background:rgba(255,255,255,0.12); }
+    .nav-cta-primary { display:inline-flex; align-items:center; gap:7px; background:var(--hk-red); color:#fff; padding:9px 20px; border-radius:100px; font-size:0.875rem; font-weight:600; transition:all 0.3s; box-shadow:0 6px 18px -6px rgba(241,52,65,0.45); }
+    .nav-cta-primary:hover { background:var(--hk-red-soft); transform:translateY(-1px); }
+    .nav-cta-primary i { width:14px; height:14px; }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; padding:6px; border:none; background:none; cursor:pointer; }
+    .nav-hamburger-line { width:22px; height:2px; background:var(--hk-text); border-radius:2px; transition:all 0.3s; }
+    .mobile-menu { display:none; }
+    @media (max-width:768px) {
+      .nav-links-glass,.nav-login,.nav-divider { display:none; }
+      .nav-hamburger { display:flex; }
+      .mobile-menu { display:flex; flex-direction:column; gap:4px; position:absolute; top:100%; left:0; right:0; background:rgba(11,7,8,0.97); backdrop-filter:blur(20px); padding:16px 24px 24px; border-bottom:1px solid rgba(255,255,255,0.07); transform:translateY(-10px); opacity:0; pointer-events:none; transition:all 0.25s; }
+      .mobile-menu.is-open { transform:translateY(0); opacity:1; pointer-events:all; }
+      .mobile-menu-label { font-size:0.6875rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--hk-text-muted); margin-bottom:8px; }
+      .mobile-menu-link { font-size:1rem; font-weight:500; color:var(--hk-text); padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:8px; }
+      .mobile-menu-section { display:flex; flex-direction:column; }
+      .mobile-menu-divider { height:1px; background:rgba(255,255,255,0.07); margin:8px 0; }
+    }
+    .page-hero { padding:160px 24px 64px; text-align:center; max-width:760px; margin:0 auto; }
+    .page-hero h1 { font-size:clamp(2.5rem,5vw,3.75rem); font-weight:800; line-height:1.1; letter-spacing:-0.03em; margin:16px 0 24px; }
+    .page-hero p { font-size:clamp(1rem,1.4vw,1.125rem); color:var(--hk-text-muted); max-width:560px; margin:0 auto; line-height:1.7; font-weight:300; }
+    .resources-section { max-width:1100px; margin:0 auto; padding:0 24px 80px; }
+    .resources-section h2 { font-size:clamp(1.5rem,2.5vw,2rem); font-weight:700; letter-spacing:-0.025em; margin:0 0 32px; }
+    .resource-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; margin-bottom:64px; }
+    .resource-card { background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.01) 100%); border:1px solid rgba(255,255,255,0.08); border-radius:20px; overflow:hidden; transition:border-color 0.3s,transform 0.3s; cursor:pointer; }
+    .resource-card:hover { border-color:rgba(241,52,65,0.3); transform:translateY(-4px); }
+    .resource-card-img { height:160px; background:linear-gradient(135deg,rgba(241,52,65,0.12) 0%,rgba(241,52,65,0.04) 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .resource-card-img i { width:48px; height:48px; color:var(--hk-red-soft); opacity:0.7; }
+    .resource-card-body { padding:24px; }
+    .resource-tag { display:inline-block; padding:3px 10px; border-radius:100px; background:rgba(241,52,65,0.1); border:1px solid rgba(241,52,65,0.2); font-size:0.6875rem; font-weight:600; color:var(--hk-red-soft); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:12px; }
+    .resource-card-body h3 { font-size:1rem; font-weight:600; margin:0 0 8px; line-height:1.4; }
+    .resource-card-body p { font-size:0.875rem; color:var(--hk-text-muted); line-height:1.6; font-weight:300; margin:0; }
+    .resource-card-footer { padding:16px 24px; border-top:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; gap:6px; font-size:0.8125rem; font-weight:500; color:var(--hk-red-soft); }
+    .resource-card-footer i { width:14px; height:14px; }
+    .faq-section { max-width:760px; margin:0 auto; padding:0 24px 80px; }
+    .faq-section h2 { font-size:clamp(1.5rem,2.5vw,2rem); font-weight:700; letter-spacing:-0.025em; margin:0 0 32px; text-align:center; }
+    .faq-item { border-bottom:1px solid rgba(255,255,255,0.07); }
+    .faq-question { width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:20px 0; background:none; border:none; cursor:pointer; text-align:left; font-family:'Poppins',sans-serif; font-size:1rem; font-weight:500; color:var(--hk-text); }
+    .faq-question i { width:18px; height:18px; color:var(--hk-text-muted); flex-shrink:0; transition:transform 0.3s; }
+    .faq-item.open .faq-question i { transform:rotate(180deg); }
+    .faq-answer { display:none; padding:0 0 20px; font-size:0.9375rem; color:var(--hk-text-muted); line-height:1.7; font-weight:300; }
+    .faq-item.open .faq-answer { display:block; }
+    .hinnk-footer { border-top:1px solid rgba(255,255,255,0.06); padding:60px 24px 32px; }
+    .hinnk-footer-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; }
+    @media (max-width:768px) { .hinnk-footer-grid { grid-template-columns:1fr 1fr; gap:32px; } }
+    @media (max-width:480px) { .hinnk-footer-grid { grid-template-columns:1fr; } }
+    .hinnk-footer-tagline { font-size:0.875rem; color:var(--hk-text-muted); line-height:1.6; margin:12px 0 16px; font-weight:300; }
+    .badge-pill { display:inline-flex; align-items:center; gap:6px; padding:4px 12px; border-radius:100px; font-size:0.6875rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
+    .badge-pill.mexico { background:rgba(0,140,69,0.1); border:1px solid rgba(0,140,69,0.25); color:#4ade80; }
+    .hinnk-footer-col { display:flex; flex-direction:column; gap:10px; }
+    .hinnk-footer-col-title { font-size:0.6875rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--hk-text-muted); margin-bottom:4px; }
+    .hinnk-footer-link { font-size:0.875rem; color:var(--hk-text-muted); transition:color 0.2s; }
+    .hinnk-footer-link:hover { color:var(--hk-text); }
+    .hinnk-footer-bottom { max-width:1100px; margin:40px auto 0; padding-top:24px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+    .hinnk-footer-copyright { font-size:0.8125rem; color:rgba(168,160,162,0.5); }
+    .hinnk-footer-channels { display:flex; align-items:center; gap:8px; color:rgba(168,160,162,0.5); font-size:0.8125rem; }
+    .hinnk-footer-channels i { width:16px; height:16px; color:rgba(168,160,162,0.4); }
+    .hinnk-footer-logo { height:32px; width:auto; display:block; margin-bottom:12px; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-to-content">Saltar al contenido</a>
+
+  <nav class="nav-floating" id="nav">
+    <div class="nav-floating-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="./hinnk-logo.png" alt="Hinnk" class="logo-mark" />
+          <img src="./hinnk-text.png" alt="hinnk" class="logo-text" />
+        </a>
+        <span class="meta-partner-badge"><span class="meta-partner-dot"></span>Meta Partner</span>
+      </div>
+      <ul class="nav-links-glass">
+        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+        <li><a href="casos.html">Casos de uso</a></li>
+        <li><a href="pricing.html">Precios</a></li>
+        <li><a href="aprender.html" class="active">Recursos</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a href="#login" class="nav-login">Iniciar sesión</a>
+        <span class="nav-divider"></span>
+        <a href="#trial" class="nav-cta-primary">Empezar gratis <i data-lucide="arrow-right"></i></a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span class="nav-hamburger-line"></span><span class="nav-hamburger-line"></span><span class="nav-hamburger-line"></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-section">
+          <span class="mobile-menu-label">Navegación</span>
+          <a href="index.html#como-funciona" class="mobile-menu-link">Cómo funciona</a>
+          <a href="casos.html" class="mobile-menu-link">Casos de uso</a>
+          <a href="pricing.html" class="mobile-menu-link">Precios</a>
+          <a href="aprender.html" class="mobile-menu-link">Recursos</a>
+        </div>
+        <div class="mobile-menu-divider"></div>
+        <div class="mobile-menu-section"><a href="#login" class="mobile-menu-link"><i data-lucide="log-in"></i>Iniciar sesión</a></div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="page-hero">
+      <span class="label-uppercase">— Recursos</span>
+      <h1>Todo lo que necesitas<br>para <span class="gradient-text">aprender</span> más</h1>
+      <p>Guías prácticas, casos de éxito y respuestas a tus preguntas más frecuentes sobre cómo Hinnk puede transformar la operación de tu empresa.</p>
+    </div>
+
+    <div class="resources-section">
+      <span class="label-uppercase">— Guías</span>
+      <h2 style="margin-top:12px;">Empieza aquí</h2>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <div class="resource-card-img"><i data-lucide="book-open"></i></div>
+          <div class="resource-card-body">
+            <span class="resource-tag">Guía</span>
+            <h3>¿Qué es un agente de IA conversacional?</h3>
+            <p>Aprende cómo funcionan los agentes de Hinnk y cómo se diferencian de los chatbots tradicionales.</p>
+          </div>
+          <div class="resource-card-footer"><i data-lucide="arrow-right"></i>Leer guía</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-card-img"><i data-lucide="message-square"></i></div>
+          <div class="resource-card-body">
+            <span class="resource-tag">Tutorial</span>
+            <h3>Cómo conectar WhatsApp Business en 15 minutos</h3>
+            <p>Paso a paso para integrar tu número de WhatsApp Business con Hinnk sin necesidad de código.</p>
+          </div>
+          <div class="resource-card-footer"><i data-lucide="arrow-right"></i>Ver tutorial</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-card-img"><i data-lucide="trending-up"></i></div>
+          <div class="resource-card-body">
+            <span class="resource-tag">Caso de éxito</span>
+            <h3>Cómo una clínica aumentó sus citas 3x con Hinnk</h3>
+            <p>Descubre cómo una clínica dental en Monterrey automatizó su agenda y redujo no-shows al 8%.</p>
+          </div>
+          <div class="resource-card-footer"><i data-lucide="arrow-right"></i>Leer caso</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-card-img"><i data-lucide="shopping-bag"></i></div>
+          <div class="resource-card-body">
+            <span class="resource-tag">Caso de éxito</span>
+            <h3>Retail que cierra ventas mientras duerme</h3>
+            <p>Una tienda de moda que triplicó sus ventas nocturnas automatizando la atención en Instagram DM.</p>
+          </div>
+          <div class="resource-card-footer"><i data-lucide="arrow-right"></i>Leer caso</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-card-img"><i data-lucide="cpu"></i></div>
+          <div class="resource-card-body">
+            <span class="resource-tag">Técnico</span>
+            <h3>Cómo funciona el RAG de Hinnk</h3>
+            <p>Una mirada al motor de recuperación de información que hace que tu agente siempre responda con precisión.</p>
+          </div>
+          <div class="resource-card-footer"><i data-lucide="arrow-right"></i>Leer artículo</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-card-img"><i data-lucide="bar-chart-2"></i></div>
+          <div class="resource-card-body">
+            <span class="resource-tag">Reporte</span>
+            <h3>El estado de la IA conversacional en LATAM 2026</h3>
+            <p>Datos, tendencias y oportunidades para empresas latinoamericanas que adoptan IA en sus canales digitales.</p>
+          </div>
+          <div class="resource-card-footer"><i data-lucide="download"></i>Descargar PDF</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <span class="label-uppercase" style="display:block;text-align:center;">— FAQ</span>
+      <h2 style="margin-top:12px;">Preguntas frecuentes</h2>
+      <div class="faq-item open">
+        <button class="faq-question">¿Necesito saber programar para usar Hinnk?<i data-lucide="chevron-down"></i></button>
+        <div class="faq-answer">No. Hinnk está diseñado para que cualquier persona pueda configurar y gestionar su agente sin ningún conocimiento técnico. Solo subes tu información, defines el tono de comunicación y listo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuánto tiempo tarda en estar activo el agente?<i data-lucide="chevron-down"></i></button>
+        <div class="faq-answer">En menos de 24 horas. Una vez aprobada tu cuenta de WhatsApp Business con Meta, tu agente puede estar atendiendo clientes el mismo día.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Funciona con mi número de WhatsApp actual?<i data-lucide="chevron-down"></i></button>
+        <div class="faq-answer">Sí, siempre que sea un número de WhatsApp Business registrado en la plataforma de Meta. Si aún no tienes uno, te ayudamos a crearlo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo cancelar en cualquier momento?<i data-lucide="chevron-down"></i></button>
+        <div class="faq-answer">Sí. No hay contratos de permanencia. Puedes cancelar tu suscripción cuando quieras desde el panel de control sin penalizaciones.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿El agente puede transferir la conversación a una persona?<i data-lucide="chevron-down"></i></button>
+        <div class="faq-answer">Absolutamente. Puedes definir palabras clave o situaciones donde el agente escale la conversación a un miembro de tu equipo humano en tiempo real.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="hinnk-footer">
+    <div class="hinnk-footer-grid">
+      <div>
+        <img src="./hinnk-logo.png" alt="Hinnk" class="hinnk-footer-logo" />
+        <p class="hinnk-footer-tagline">Agentes de IA operando tu negocio.<br>Sin código, sin guiones rígidos, sin contratos largos.</p>
+        <span class="badge-pill mexico">Hecho en México</span>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Producto</span>
+        <a href="index.html#como-funciona" class="hinnk-footer-link">Cómo funciona</a>
+        <a href="casos.html" class="hinnk-footer-link">Casos de uso</a>
+        <a href="pricing.html" class="hinnk-footer-link">Precios</a>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Empresa</span>
+        <a href="nosotros.html" class="hinnk-footer-link">Conócenos</a>
+        <a href="seguridad.html" class="hinnk-footer-link">Seguridad y privacidad</a>
+        <a href="aprender.html" class="hinnk-footer-link">Aprender más</a>
+      </div>
+      <div class="hinnk-footer-col">
+        <span class="hinnk-footer-col-title">Legal</span>
+        <a href="terminos.html" class="hinnk-footer-link">Términos y condiciones</a>
+        <a href="privacidad.html" class="hinnk-footer-link">Aviso de privacidad</a>
+        <a href="cookies.html" class="hinnk-footer-link">Política de cookies</a>
+      </div>
+    </div>
+    <div class="hinnk-footer-bottom">
+      <span class="hinnk-footer-copyright">© 2026 Hinnk Technologies S.A. de C.V. — Todos los derechos reservados.</span>
+      <span class="hinnk-footer-channels">Conectado con <i data-lucide="message-circle"></i><i data-lucide="instagram"></i><i data-lucide="messages-square"></i></span>
+    </div>
+  </footer>
+
+  <script src="./assets/hinnk-shared.js"></script>
+  <script>
+    lucide.createIcons();
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
