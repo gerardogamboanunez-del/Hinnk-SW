@@ -1,0 +1,28 @@
+HINNK · Archivos de logo
+========================
+
+Esta carpeta contiene los logos de Hinnk en dos formatos:
+
+📁 originales/ (raster - PNG/JPG)
+   - hinnk_isotipo.png    : Solo el símbolo (cuadrado rojo con J), fondo transparente
+   - hinnk_wordmark.png   : Solo la palabra "hinnk", fondo transparente
+   - hinnk_imagotipo.jpg  : Símbolo + palabra juntos, fondo negro
+
+📁 svg-recreados/ (vectorial aproximado)
+   - hinnk_isotipo.svg    : Recreación geométrica del símbolo
+   - hinnk_wordmark.svg   : Texto "hinnk" usando Poppins Bold (requiere fuente)
+   - hinnk_imagotipo.svg  : Símbolo + texto combinados
+
+⚠️ IMPORTANTE sobre los SVGs recreados:
+Los SVGs fueron creados por inspección visual de los PNG.
+NO son fieles 100% al original — pueden tener ligeras diferencias
+en proporciones, curvaturas o espaciado.
+
+Para uso oficial (impresión, branding formal), recomendamos:
+1. Pedir los SVGs originales a quien diseñó el logo
+2. O vectorizar los PNG con herramienta profesional:
+   - Adobe Illustrator (Image Trace)
+   - Figma (con plugin de vectorización)
+   - vectorizer.io / convertio.co (online)
+
+Color oficial Hinnk: #F13441

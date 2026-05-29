@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hinnk · Imagotipo (isotipo + wordmark)
+  Recreación aproximada basada en PNG original.
+  Color isotipo: #F13441 · Color wordmark: #F5EBE0
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" fill="none">
+  <!-- ISOTIPO (escalado a 120x120) -->
+  <g transform="translate(0, 10)">
+    <rect x="12" y="12" width="96" height="96" rx="17" ry="17"
+          stroke="#F13441" stroke-width="8.4" stroke-linejoin="round"/>
+    <circle cx="48" cy="38.4" r="5.4" fill="#F13441"/>
+    <path d="M 48 52.8 L 48 72 Q 48 81.6 57.6 81.6 L 74.4 81.6"
+          stroke="#F13441" stroke-width="8.4"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="140" y="86" font-family="Poppins, system-ui, sans-serif"
+        font-weight="700" font-size="92" letter-spacing="-3"
+        fill="#F5EBE0">hinnk</text>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hinnk · Isotipo (recreación aproximada)
+  Color oficial: #F13441
+  Recreado por inspección visual del PNG original.
+  Para uso oficial, vectorizar el PNG original con herramienta profesional.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Marco cuadrado redondeado -->
+  <rect x="10" y="10" width="80" height="80" rx="14" ry="14"
+        stroke="#F13441" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- Punto (cabeza de la 'j') -->
+  <circle cx="40" cy="32" r="4.5" fill="#F13441"/>
+
+  <!-- Cuerpo de la 'j': vertical descendente + curva 90° + horizontal -->
+  <path d="M 40 44 L 40 60 Q 40 68 48 68 L 62 68"
+        stroke="#F13441" stroke-width="7"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

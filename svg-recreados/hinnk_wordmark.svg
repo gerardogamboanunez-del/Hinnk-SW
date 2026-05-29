@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hinnk · Wordmark (versión texto con Poppins Bold)
+  Funciona si el sistema/navegador tiene Poppins disponible.
+  Para uso fuera de web, vectorizar las letras con herramienta profesional.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 100" fill="none">
+  <text x="140" y="76" font-family="Poppins, system-ui, sans-serif"
+        font-weight="700" font-size="92" letter-spacing="-3"
+        text-anchor="middle" fill="#F5EBE0">hinnk</text>
+</svg>
